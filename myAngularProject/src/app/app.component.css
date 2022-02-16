@@ -1,0 +1,20 @@
+h1{
+    text-align: center;
+    color: rgb(75, 21, 120);
+    margin-top: 10px;
+}
+.container {
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .id2{
+    background: linear-gradient(75deg,rgb(247, 231, 7),rgb(247, 7, 227),rgb(41, 0, 155));
+}
+  footer{
+      text-align: center;
+      font-size: 15px;
+      color: rgb(255, 255, 255);
+      background-color: rgb(2, 2, 2);
+      margin-top: 50px;
+  }
