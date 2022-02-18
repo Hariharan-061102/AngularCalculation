@@ -33,181 +33,149 @@ Publish the website in the given URL.
 
 ## PROGRAM :
 ### cyclinder.component.htnl
-
-<div class="content">
-    <h2>
-        Volume of the cyclinder
-    </h2>
-    <div class="id">
-        Radius=<input type="text"[(ngModel)]="radius"> Meters<br/>
-        Height=<input type="text"[(ngModel)]="height"> Meters<br/>
-        <input class="id" type="button" (click)="oncalculate() "value="CalculationArea"><br/>
-        Volume=<input type="text" [value]="volume" readonly> Meters <sup>3</sup><br/>
-    </div>
-</div>
-<style>
-    h2{
-background-color: aqua;
-color: blue;
-}
-.content {
-  display: block;
-  width: 100%;
-  background-color: #000000;
-  min-height: 200px;
-  margin-top: 100px;
-  text-align: center;
-
-}
-.id{
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
-}
-
-</style>
-
+~~~
+<div>
+    <h2>Area of a Cylinder</h2>
+    Radius = <input  type="text" [(ngModel)]="radius"> Meters<br>
+    Height = <input [(ngModel)]="height"type ="text">Meters<br>
+    <input type="button" (click)="onCycCalculate()" value="calculate"><br>
+    Area=<input [value]="area" type="text" >Meter<sup>2</sup>
+</div> 
+~~~
 ### cyclinder.component.ts
-
-import { Component } from "@angular/core";
+~~~
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector:'Cyclinder-volume',
-    templateUrl:'./cyclinder.component.html'
+  selector: 'app-cylinder',
+  templateUrl: './cylinder.component.html',
+  styleUrls: ['./cylinder.component.css']
 })
-export class Cyclindercomponent{
-    radius:number;
-    height:number;
-    volume:number;
-    constructor(){
-        this.height=0;
-        this.radius=0;
-        this.volume=22/7*this.radius*this.radius*this.height;
-    }
-    oncalculate(){
-        this.volume=22/7*this.radius*this.radius*this.height
+export class CylinderComponent implements OnInit {
+  radius:number
+  height:number
+  area:number
+  constructor() {
+    this.radius = 0
+    this.height = 0
+    this.area = 2*22/7*this.radius*(this.radius+this.height)
+   }
+   onCycCalculate(){
+    this.area = this.area = 3.14*this.radius*this.radius*this.height
+   }
+  ngOnInit(): void {
+  }
 
-    }
 }
+
+~~~
 
 ### rectangle.component.html
-
-<div class="content">
-    <h2>
-        Area of the rectangle
-    </h2>
-    <div class="id">
-        Length=<input type="text"[(ngModel)]="length"> Meters<br/>
-        Breadth=<input type="text"[(ngModel)]="breadth"> Meters<br/>
-        <input class="id" type="button" (click)="onCalculate() "value="CalculationArea"><br/>
-        Area=<input type="text" [value]="area" readonly> Meters <sup>2</sup><br/>
-    </div>
+~~~
+<div>
+    <h2>Area of a Rectangle</h2>
+    Length = <input  type="text" [(ngModel)]="length"> Meters<br>
+    Breadth = <input [(ngModel)]="breadth"type ="text">Meters<br>
+    <input type="button" (click)="onCalculate()" value="calculate"><br>
+    Area=<input [value]="area" type="text" >Meter<sup>2</sup>
 </div>
-<style>
-    h2{
-background-color: rgb(109, 15, 43);
-color: rgb(0, 0, 0);
-}
-.content {
-  display: block;
-  width: 100%;
-  background-color: #000000;
-  min-height: 200px;
-  margin-top: 100px;
-  text-align: center;
-}
-.id{
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 25px;
-}
-
-</style>
-
+~~~
 ### rectangle.component.ts
-
-import { Component } from "@angular/core";
+~~~
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector:'Rectangle-Area',
-    templateUrl:'./rectangle.component.html'
+  selector: 'app-rectangle',
+  templateUrl: './rectangle.component.html',
+  styleUrls: ['./rectangle.component.css']
 })
-export class RectangleComponent{
-    length:number;
-    breadth:number;
-    area:number;
-    constructor(){
-        this.length=0;
-        this.breadth=0;
-        this.area= this.length * this.breadth;
-    }
-    onCalculate(){
-        this.area = this.length * this.breadth
-    }
+export class RectangleComponent implements OnInit {
+  length:number
+  breadth:number
+  area:number
+  constructor() { 
+    this.length = 0
+    this.breadth = 0
+    this.area = this.length*this.breadth;
+  }
+  onCalculate(){
+    this.area = this.length*this.breadth;
+}
+  ngOnInit(): void {
+  }
+
 }
 
+~~~
 ### app.component.css
-
+~~~
+.container{
+  background-color: rgb(136, 212, 13);
+  text-align: center;
+  height: 720pxx;
+}
+.subcontainer{
+  background-color: rgb(218, 169, 8);
+  width: 600px;
+  height: 200px;
+  text-align: center;
+  margin-left: 400px;
+  margin-bottom: 50px;
+}
 h1{
-    text-align: center;
-    color: rgb(26, 11, 80);
-    margin-top: 10px;
+  text-decoration: underline;
 }
-.container {
-    width: 980px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .id2{
-    background: linear-gradient(75deg,rgb(112, 114, 0),rgb(155, 0, 155));
-}
-  footer{
-      text-align: center;
-      font-size: 15px;
-      color: rgb(191, 7, 247);
-      background-color: rgb(68, 255, 10);
-      margin-top: 50px;
-  }
-
+~~~
 ### app.component.html
-
-<div class="id2">
-  <h1>Mathcalculations</h1>
+~~~
+<body>
   <div class="container">
-  
-  <Rectangle-Area></Rectangle-Area>
-  <Cyclinder-volume></Cyclinder-volume>
+      <h1>Math Calculations</h1>
+      <div class="subcontainer">
+        <app-cylinder></app-cylinder>
+    </div>
+      <div class="subcontainer">
+          
+          <app-rectangle></app-rectangle>
+      </div>
+      
+      <div class="footer">
+          Developed by: Hariharan
+      </div>
   </div>
-  
-  <footer>developed by srinivas</footer>
-  </div>
-
+</body>
+~~~
 ### app.module.ts
-
+~~~
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Cyclindercomponent } from './cyclinder/cyclinder.component';
 import { RectangleComponent } from './rectangle/rectangle.component';
+import { CylinderComponent } from './cylinder/cylinder.component';
 
 @NgModule({
- declarations: [
-   AppComponent,RectangleComponent,Cyclindercomponent
- ],
- imports: [
-   BrowserModule,FormsModule
- ],
- providers: [],
- bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    RectangleComponent,
+    CylinderComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
-
+~~~
 
 ## OUTPUT:
 
-![output](1.jpg)
+![output](1.jpeg)
 
 
 ## Result:
