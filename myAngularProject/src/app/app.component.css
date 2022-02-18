@@ -1,20 +1,16 @@
+.container{
+  background-color: rgb(136, 212, 13);
+  text-align: center;
+  height: 720pxx;
+}
+.subcontainer{
+  background-color: rgb(218, 169, 8);
+  width: 600px;
+  height: 200px;
+  text-align: center;
+  margin-left: 400px;
+  margin-bottom: 50px;
+}
 h1{
-    text-align: center;
-    color: rgb(75, 21, 120);
-    margin-top: 10px;
+  text-decoration: underline;
 }
-.container {
-    width: 980px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .id2{
-    background: linear-gradient(75deg,rgb(247, 231, 7),rgb(247, 7, 227),rgb(41, 0, 155));
-}
-  footer{
-      text-align: center;
-      font-size: 15px;
-      color: rgb(255, 255, 255);
-      background-color: rgb(2, 2, 2);
-      margin-top: 50px;
-  }
